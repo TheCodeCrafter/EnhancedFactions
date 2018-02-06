@@ -1,4 +1,4 @@
-import com.massivecraft.factions.util.TeamAction;
+import net.fathomtech.plugins.EnhancedFactions.util.TeamAction;
 import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardTeam;
 import net.minecraft.server.v1_8_R3.ScoreboardTeamBase;
 import org.bukkit.ChatColor;
