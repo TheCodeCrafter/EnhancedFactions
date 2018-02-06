@@ -30,9 +30,9 @@ public class Focus implements CommandExecutor() {
           String name = args[1];
           FPlayer target;
           
-          for (FPlayer fplayer : FPlayers.getInstance().getAllFPlayers()) {
-            if (fplayer.getName().equalsIgnoreCase(name)) {
-              target = fplayer;
+          for (FPlayer pplayer : FPlayers.getInstance().getAllFPlayers()) {
+            if (pplayer.getName().equalsIgnoreCase(name)) {
+              target = pplayer;
               break;
             }
           }
@@ -51,9 +51,9 @@ public class Focus implements CommandExecutor() {
           String message = args[2];
           FPlayer target;
           
-          for (FPlayer fplayer : FPlayers.getInstance().getAllFPlayers()) {
-            if (fplayer.getName().equalsIgnoreCase(name)) {
-              target = fplayer;
+          for (FPlayer pplayer : FPlayers.getInstance().getAllFPlayers()) {
+            if (pplayer.getName().equalsIgnoreCase(name)) {
+              target = pplayer;
               break;
             }
           }
@@ -69,7 +69,7 @@ public class Focus implements CommandExecutor() {
             }
           }
           
-          this.plugin.addFocusedPlayer(target, myFaction, message);
+          this.plugin.addFocusedPlayer(target, myFaction, fplayer, message);
           return true;
         }
         
