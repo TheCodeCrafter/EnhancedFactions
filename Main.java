@@ -39,13 +39,13 @@ public class Main extends JavaPlugin {
   
   private void focusPlayer(FPlayer target, Set<FPlayer> recipients) {
     for(FPlayer player : recipients) {
-      changeNameTag(player, target, getConfig().getString("focusedPrefix"), getConfig().getString("focusedSuffix"), TeamAction.CREATE);
+      changeNameTag(player.getPlayer(), target.getPlayer(), getConfig().getString("focusedPrefix"), getConfig().getString("focusedSuffix"), TeamAction.CREATE);
     }
   }
   
   private void unfocusPlayer(FPlayer target, Set<FPlayer> recipients) {
     for(FPlayer player : recipients) {
-      changeNameTag(player, target, "", "", TeamAction.DESTROY);
+      changeNameTag(player.getPlayer(), target.getPlayer(), "", "", TeamAction.DESTROY);
     }
   }
 }
