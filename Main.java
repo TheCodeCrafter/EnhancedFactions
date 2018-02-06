@@ -26,7 +26,7 @@ public class Main extends JavaPlugin {
     Set<FPlayer> members = faction.getFPlayersWhereOnline(true);
     faction.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + target.getName() + " has been focused!");
     focus.data.setList(target.getName() + ".recipients", members);
-    this.focusPlayer();
+    this.focusPlayer(target, members);
   }
   
   public void addFocusedPlayer(FPlayer target, Faction faction, FPlayer sender, String message) {
@@ -34,7 +34,7 @@ public class Main extends JavaPlugin {
     faction.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + target.getName() + " has been focused!");
     faction.addAnnouncement(sender, message);
     focus.data.setList(target.getName() + ".recipients", members);
-    this.focusPlayer();
+    this.focusPlayer(target, members);
   }
   
   private void focusPlayer(FPlayer target, Set<FPlayer> recipients) {
