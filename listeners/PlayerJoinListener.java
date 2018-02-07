@@ -25,7 +25,14 @@ public class PlayerJoinListener implements Listener {
     Player player = event.getPlayer();
     
     // FIND OUT WHO IS FOCUSED
+    Set<String> focusedPlayers = (Set<String>) this.plugin.focus.data.getKeys(false);
     
-    // SEND PACKET TO RE-FOCUS ON THAT PLAYER
+    // LOOP THROUGH RECIPIENTS TO SEE IF YOU ARE FOCUSED
+    for(String name : focusedPlayers) {
+      if(this.plugin.focus.data.getSet(name + ".recipients").contains(player.getName)) {
+        // SEND NEW PACKET
+        this.plugin.focusPlayer(FPlayers.getInstance().getByName(name), FPlayers.getInstance().getByPlayer(player));
+      }
+    }
   }
 }
