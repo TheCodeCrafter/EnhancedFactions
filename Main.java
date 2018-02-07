@@ -9,11 +9,6 @@ public class Main extends JavaPlugin {
   public void onEnable() {
     saveDefaultConfig();
     focus = new FocusFile(this);
-    
-    ArrayList<String> focusedPlayers = (ArrayList<String>) focus.data.getKeys(false);
-    for(String playername : focusedPlayers) {
-      focusPlayer
-    }
   }
   
   @Override
