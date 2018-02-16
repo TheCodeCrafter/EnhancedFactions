@@ -3,12 +3,17 @@ package net.fathomtech.plugins.EnhancedFactions;
 public class Main extends JavaPlugin {
   
   FocusFile focus;
-  HashMap<Player, ArrayList<Player>> cache = new HashMap<Player, ArrayList<Player>>();
+  HashMap<String, ArrayList<String>> cache = new HashMap<String, ArrayList<String>>();
   
   @Override
   public void onEnable() {
     saveDefaultConfig();
     focus = new FocusFile(this);
+    
+    for(String key : focus.data.getSection("data").getKeys(false)) {
+      ArrayList<String> recipients = focus.data.getList("data." + key);
+      cache.put(key, recipients);
+    }
   }
   
   @Override
