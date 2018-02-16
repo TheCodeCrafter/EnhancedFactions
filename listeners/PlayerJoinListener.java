@@ -5,19 +5,16 @@ public class PlayerJoinListener implements Listener {
   public void isPlayerFocusedOnJoin(PlayerJoinEvent event) {
     Player player = event.getPlayer();
     
-    Player focusedPlayer = null;
-    
-    // GET DATA
-    Set<String> focusedPlayers = this.plugin.focus.data.getKeys(false);
-    
-    // CHECK IF PLAYER IS FOCUSED
-    for(String name : focusedPlayers) {
-      if(name.equalsIgnoreCase(player.getName())) {
-        Set<FPlayers> recipients = (Set<FPlayers>) this.plugin.focus.data.getSet(name + ".recipients");
-        this.plugin.focusPlayer(FPlayers.getInstance().getByPlayer(player), recipients);
+    for(String fPlayer : plugin.cache.keySet()) {
+      if(fPlayer.equalsIgnoreCase(player.getName()) {
+        ArrayList<String> recipients = plugin.cache.get(fPlayer);
+        
+        for(String recipientName : recipients) {
+          FPlayer recipient = FPlayers.getInstance().getByName(recipientName);
+          this.plugin.focusPlayer(FPlayers.getInstance().getByName(player.getName()), recipient);
+        }
       }
     }
-         
   }
   
   @EventHandler
@@ -25,11 +22,11 @@ public class PlayerJoinListener implements Listener {
     Player player = event.getPlayer();
     
     // FIND OUT WHO IS FOCUSED
-    Set<String> focusedPlayers = (Set<String>) this.plugin.focus.data.getKeys(false);
+    Set<String> focusedPlayers = plugin.cache.keySet();
     
     // LOOP THROUGH RECIPIENTS TO SEE IF YOU ARE FOCUSED
     for(String name : focusedPlayers) {
-      if(this.plugin.focus.data.getSet(name + ".recipients").contains(player.getName)) {
+      if(this.plugin.focus.data.getSet(name + ".recipients").contains(player.getName())) {
         // SEND NEW PACKET
         this.plugin.focusPlayer(FPlayers.getInstance().getByName(name), FPlayers.getInstance().getByPlayer(player));
       }
