@@ -48,4 +48,57 @@ public class FactionUpgrades {
   public String getFancyCostModifier() {
     return "" + (costModifier * 100) + "%";
   }
+  
+  // SETTERS
+  public void setFly(boolean newFly) {
+    this.fly = newFly;
+  }
+  
+  public void setFlySpeed(float m) {
+    if(m !== null) {
+      this.flySpeedMultiplier = m;
+    } else {
+      this.flySpeedMultiplier = 1.0;
+    }
+  }
+  
+  public void setDamageMultiplier(float m) {
+    if(m !== null) {
+      this.damageMultiplier = m;
+    } else {
+      this.damageMultiplier = 1.0;
+    }
+  }
+  
+  public void setDamageTakenModifier(float m) {
+    if(m !== null) {
+      this.damageTakeModifier = m;
+    } else {
+      this.damageTakenModifier = 1.0;
+    }
+  }
+  
+  public void setHasteMultiplier(float m) {
+    if(m !== null) {
+      this.hasteMultiplier = m;
+    } else {
+      this.hasteMultiplier = 1.0;
+    }
+  }
+  
+  public void setSpeedMultiplier(float m) {
+    if(m !== null) {
+      this.speedMultiplier = m;
+    } else {
+      this.speedMultiplier = 1.0;
+    }
+  }
+  
+  public void setCostModifier(float m) {
+    if(m !== null) {
+      this.costModifier = m;
+    } else {
+      this.costModifier = 1.0;
+    }
+  }
 }
